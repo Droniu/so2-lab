@@ -27,4 +27,30 @@
 # że na pewno możemy je przeczytać).
 #
 
+rm -f "ddd/zasoby/tajne hasła"
+touch "ddd/zasoby/tajne hasła"
+touch tempfiles
+touch tempcontents
+
+find ccc/ -type f -perm +444 > ./tempfiles
+find ccc/ -type f -perm +444 -exec cat {} \; > ./tempcontents
+
+count=$(wc -l < ./tempfiles )
+
+for i in $(seq 1 $count)
+do
+    tempLineFile=$(sed -n "$i p" tempfiles)
+    tempLineContent=$(sed -n "$i p" tempcontents)
+    
+    echo '°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸' >> "ddd/zasoby/tajne hasła"
+    echo "Zawartość pliku $tempLineFile" >> "ddd/zasoby/tajne hasła"
+    echo '°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸' >> "ddd/zasoby/tajne hasła"
+    echo "$tempLineContent" >> "ddd/zasoby/tajne hasła"
+    echo "" >> "ddd/zasoby/tajne hasła"
+
+done
+
+rm tempfiles
+rm tempcontents
+
 
