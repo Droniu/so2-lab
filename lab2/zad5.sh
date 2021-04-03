@@ -27,5 +27,7 @@
 #
 
 mkdir -pv ddd/głęboki
-cp -nv bbb/* ddd/głęboki/
-#  w sumie to samo co w zad3.
+find ./bbb/ -type f -exec cp -nv "{}" ./ddd/głęboki/ ";"
+
+# podobno execdir nalezy uzywać z powodów bezpieczeństwa,
+# ale nie bardzo rozumiem dlaczego
