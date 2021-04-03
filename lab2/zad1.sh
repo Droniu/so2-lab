@@ -21,7 +21,7 @@
 # Sprawdzić, czy w katalogu `ddd` istnieje plik o nazwie `pierwszy`,
 # a jeśli nie, to go utworzyć. Zawartość pliku nie ma znaczenia.
 #
-if [[ -f "./ddd/pierwszy" ]]; then
+if [ -f "./ddd/pierwszy" ]; then
    echo "Plik ./ddd/pierwszy już istnieje."
 else
    touch "./ddd/pierwszy"

@@ -25,3 +25,6 @@
 #
 
 
+touch ddd/całość
+zawartosc=$(cat aaa/jeden aaa/dwa aaa/trzy aaa/cztery)
+echo "$zawartosc" > ddd/całość

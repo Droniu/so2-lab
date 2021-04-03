@@ -26,4 +26,6 @@
 # kopiowania nie nadpiszemy żadnych istniejących w nim plików!
 #
 
-
+mkdir -pv ddd/głęboki
+cp -nv bbb/* ddd/głęboki/
+#  w sumie to samo co w zad3.
