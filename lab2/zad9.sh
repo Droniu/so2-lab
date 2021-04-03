@@ -29,18 +29,18 @@
 
 rm -f "ddd/zasoby/tajne hasła"
 touch "ddd/zasoby/tajne hasła"
-touch tempfiles
-touch tempcontents
+touch zad9_tempfiles
+touch zad9_tempcontents
 
-find ccc/ -type f -perm +444 > ./tempfiles
-find ccc/ -type f -perm +444 -exec cat {} \; > ./tempcontents
+find ccc/ -type f -perm +444 > ./zad9_tempfiles
+find ccc/ -type f -perm +444 -exec cat {} \; > ./zad9_tempcontents
 
-count=$(wc -l < ./tempfiles )
+count=$(wc -l < ./zad9_tempfiles )
 
 for i in $(seq 1 $count)
 do
-    tempLineFile=$(sed -n "$i p" tempfiles)
-    tempLineContent=$(sed -n "$i p" tempcontents)
+    tempLineFile=$(sed -n "$i p" zad9_tempfiles)
+    tempLineContent=$(sed -n "$i p" zad9_tempcontents)
     
     echo '°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸' >> "ddd/zasoby/tajne hasła"
     echo "Zawartość pliku $tempLineFile" >> "ddd/zasoby/tajne hasła"
@@ -50,7 +50,9 @@ do
 
 done
 
-rm tempfiles
-rm tempcontents
+rm zad9_tempfiles
+rm zad9_tempcontents
 
 
+# zapewne zrobiłem to totalnie naokoło i mozna to zrobić w 3 linijki,
+# ale efekt chyba jest taki jaki powinien być xD
