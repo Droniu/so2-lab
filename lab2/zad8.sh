@@ -25,4 +25,21 @@
 # `aaa`, `bbb` i wszelkie potrzebne ich podkatalogi.
 #
 
+# problem 1: na macu nie ma find -writable
+# problem 2: na macu nie ma cp --parents
+
+# chyba zainstaluje linuxa
+
+# nie no zartuje nie poddajemy sie tak latwo
+
+find aaa/ bbb/ -type f ! -perm +222 -exec rsync -Rrv --ignore-existing {} ddd/zapasy/ \;
+
+# elegancko wszystko dziala
+# własności plików w octalu stąd:
+# http://www.filepermissions.com/file-permission/222
+
+# normalnie to by jakoś tak wyglądało:
+# find aaa/ bbb/ -type f -writable -exec cp -Rnv --parents {} ddd/zapasy/ \;
+#
+# lubie to "-v" (verbose) bo widac co sie dzieje
 
