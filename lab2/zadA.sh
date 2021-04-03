@@ -32,6 +32,8 @@
 # źródłowych `nazwa-...`; każda nazwa to osobna linia w tych plikach).
 #
 
+
+# taki trochę miks zadania 1 z 9
 touch zadA_tempfiles
 cat ./ddd/nazwy-[1-4] > zadA_tempfiles
 count=$(wc -l < ./zadA_tempfiles )
@@ -61,3 +63,5 @@ do
 done
 
 rm -f zadA_tempfiles
+
+# wow, to juz było było dosyć męczące
