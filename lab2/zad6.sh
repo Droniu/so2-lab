@@ -23,4 +23,9 @@
 # plik do katalogu `ddd`, jeśli jeszcze go tam nie ma.
 #
 
+zawartosc=$(cat "ddd/bardzo tajna treść")
+
+find bbb/ -type f -exec grep -lr "$zawartosc" {} ";" -exec cp -nv {} ddd/ ";"
+
+
 
