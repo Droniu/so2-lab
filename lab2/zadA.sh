@@ -32,4 +32,32 @@
 # źródłowych `nazwa-...`; każda nazwa to osobna linia w tych plikach).
 #
 
+touch zadA_tempfiles
+cat ./ddd/nazwy-[1-4] > zadA_tempfiles
+count=$(wc -l < ./zadA_tempfiles )
 
+#pętla usuwająca
+for i in $(seq 1 $count)
+do
+    tempLine=$(sed -n "$i p" zadA_tempfiles)
+    rm -f "./ddd/zasoby/$tempLine"
+    
+done
+
+# pętla tworząca
+for i in $(seq 1 $count)
+do
+    tempLine=$(sed -n "$i p" zadA_tempfiles)
+
+    if [ -f "./ddd/zasoby/$tempLine" ]; then
+        tempInt=$(cat "./ddd/zasoby/$tempLine")
+        let tempInt++
+        echo $tempInt > "./ddd/zasoby/$tempLine"
+    else
+        touch "./ddd/zasoby/$tempLine"
+        echo "0" > "./ddd/zasoby/$tempLine"
+    fi
+    
+done
+
+rm -f zadA_tempfiles
