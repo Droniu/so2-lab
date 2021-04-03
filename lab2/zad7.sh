@@ -25,3 +25,9 @@
 #
 
 
+touch ddd/ostrzeżenie
+echo "Uważaj na te pliki:" > ddd/ostrzeżenie
+
+# na macu nie dziala find -executable, wiec trzeba sie bawic jakos inaczej
+
+find bbb/ -type f -exec test -x {} \; -print >> ddd/ostrzeżenie
