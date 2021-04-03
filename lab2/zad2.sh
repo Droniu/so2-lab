@@ -22,5 +22,20 @@
 # Plik powinien zawierać napis `Ala ma kota.`. Jeśli czegoś brakuje
 # to odpowiedni plik stworzyć lub nadpisać istniejący.
 #
+if [ -f "./ddd/drugi" ]; then
+    echo "Plik ./ddd/drugi już istnieje."
+    zawartosc=$(cat ./ddd/drugi)
+    
+    if [ "$zawartosc" == "Ala ma kota." ]; then
+        echo "Zawartosc poprawna."
+    else 
+        echo "Ala ma kota." > ./ddd/drugi
+        echo "Zmieniono zawartosc na poprawna."
+    fi
+else
+    touch "./ddd/drugi"
+    echo "Ala ma kota." > ./ddd/drugi
+    echo "Utworzono plik ./ddd/drugi"
+fi
 
 
