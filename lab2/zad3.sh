@@ -22,4 +22,7 @@
 # upewniając się, że nie nadpiszemy żadnego istniejącego pliku w `ddd`.
 #
 
+cp -Rnv aaa/* ddd/
 
+# -v pokazuje co sie dzieje, -n blokuje nadpisywanie, -R rekurencyjnie (w razie gdyby byly foldery w środku)
+# * -> wszystkie pliki
