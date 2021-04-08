@@ -23,4 +23,8 @@
 # jeśli jakikolwiek plik o nazwie `pierwszy` już istnieje w `ddd`.
 #
 
-
+if [ -e "./ddd/pierwszy" ]; then
+   echo "Plik ./ddd/pierwszy już istnieje."
+else
+    ln aaa/podstawa ddd/pierwszy
+fi
