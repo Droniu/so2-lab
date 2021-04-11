@@ -25,3 +25,19 @@
 #
 
 
+
+if [ -e "./ddd/aaa" ]; then
+   echo "Plik ./ddd/aaa już istnieje."
+else
+    ln -vs "$(pwd)/aaa" ddd/aaa
+fi
+if [ -e "./ddd/bbb" ]; then
+   echo "Plik ./ddd/bbb już istnieje."
+else
+    ln -vs "$(pwd)/bbb" ddd/bbb
+fi
+if [ -e "./ddd/ccc" ]; then
+   echo "Plik ./ddd/ccc już istnieje."
+else
+    ln -vs "$(pwd)/ccc" ddd/ccc
+fi
