@@ -24,4 +24,33 @@
 # upewnić się, że nie zmienimy żadnych istniejących plików w `ddd`.
 #
 
+# --------------------------------
 
+# patrząc na doświadczenie z poprzednich labów, zainstalowałem sobie
+# GNU find, który ma więcej funkcji niż ten BSD (defaultowy na macu)
+
+# komenda to gfind, więc takowej będę używać. Aby skrypt działał na linuksie
+# należy odkomentować poniszą linijkę
+# alias gfind=find
+
+touch zad3_tempnames
+
+gfind aaa/ -executable -type f -exec basename {} \; >> zad3_tempnames
+
+# nie wiem czy traktujemy folder aaa/ jako plik wykonywalny
+# (opcja -executable twierdzi, że tak). Jeśli tak, należy usunąć z find
+# opcję -type f
+
+count=$(wc -l < ./zad3_tempnames )
+for i in $(seq 1 $count)
+do
+    tempLine=$(sed -n "$i p" zad3_tempnames)
+    
+    if [ -e "ddd/$tempLine" ]; then
+        echo "Plik ddd/$tempLine już istnieje."
+    else
+        ln -v "aaa/$tempLine" "ddd/$tempLine"
+    fi
+done
+
+rm -f zad3_tempnames
