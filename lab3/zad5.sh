@@ -25,3 +25,18 @@
 #
 
 
+# odkomentować na linuksie
+# alias gfind=find
+
+gfind ccc/ -xtype l -exec readlink -q {} \;
+
+# opcja -q na macu nie działa, dostaję wiadomość:
+# readlink: illegal option -- q
+#
+# jestem jednak przekonany ze ne na linuksie zadziała, + jak będzie
+# to potrzebne w kolejnych zadaniach to doinstaluję wersję GNU
+
+# bez -q tez zadziała, ale plik ccc/cezary wywala błąd:
+# gfind: ‘ccc/cezary’: Too many levels of symbolic links
+# a zakładam ze "Nie wyświetlać nic ponadto!" oznacza zignorowanie
+# tego błędu.
