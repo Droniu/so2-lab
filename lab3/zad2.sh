@@ -25,3 +25,9 @@
 #
 
 
+if [ -e "./ddd/drugi" ]; then
+   echo "Plik ./ddd/drugi już istnieje."
+else
+    ln -sv aaa/podstawa ddd/pierwszy
+fi
+
