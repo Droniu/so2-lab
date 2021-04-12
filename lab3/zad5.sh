@@ -28,8 +28,7 @@
 # odkomentować na linuksie
 # alias gfind=find
 
-gfind ccc/ -xtype l -exec readlink -q {} \;
-
+gfind ccc/ -type l -exec test ! -e {} \; -exec readlink {} \;
 # opcja -q na macu nie działa, dostaję wiadomość:
 # readlink: illegal option -- q
 #
