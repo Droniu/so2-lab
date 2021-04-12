@@ -24,4 +24,21 @@
 # względem katalogu domowego bieżącego użytkownika (zmienna ${HOME}).
 #
 
+# dobra zainstalowałem coreutils bo siedzę nad tym od godziny i nie mam pomysłu 
 
+# odkomentować na linuksie
+# alias gfind=find
+# alias grealpath=realpath
+
+touch zad6_tempnames
+gfind ccc/ -type l -exec test -e {} \; -exec readlink {} \; >> zad6_tempnames
+while read content; do
+    grealpath --relative-to=${HOME} ccc/$content \;
+done < zad6_tempnames
+rm -f zad6_tempnames
+
+# szukałem eleganckiego rozwiązania w jednej linijce, ale 
+# gfind ccc/ -type l -exec test -e {} \; -exec readlink {} \; -exec grealpath \
+# --relative-to=${HOME} {} \;
+
+# daje wyniki readlink w co 2 linijce i nie wiem jak się tego pozbyć :( 
