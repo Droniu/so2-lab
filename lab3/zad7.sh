@@ -25,4 +25,15 @@
 # przez dowiązanie nie ma dla nas znaczenia.
 #
 
+# odkomentować na linuksie
+# alias gfind=find
+# alias grealpath=realpath
 
+touch zad7_tempnames
+gfind bbb/ -type l -lname "/*" -exec readlink {} \; >> zad7_tempnames
+while read content; do
+    grealpath -m $content
+done < zad7_tempnames
+rm -f zad7_tempnames
+
+# to było dużo łatwiejsze, ale też nie wiem jak zrobić to w jednej linii
