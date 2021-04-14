@@ -31,7 +31,7 @@
 # alias grealpath=realpath
 
 touch temp_zad8
-# dowiązania wiszące lub cykliczne (zad5)
+# dowiązania zepsute, czyli wiszące lub cykliczne (zad5)
 gfind ccc/ -type l -exec test ! -e {} \; -print >> temp_zad8
 # w sumie chyba najlepszy sposób do czytania pliku linia po linii
 while read line; do
