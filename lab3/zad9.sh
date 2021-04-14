@@ -28,4 +28,16 @@
 # Przykład uruchomienia: ./zad9.sh '../aaa/echo'
 #
 
+# odkomentować na linuksie
+# alias gfind=find
+# alias grealpath=realpath
 
+if ! [ $1 ]; then exit 1; fi
+touch temp_zad9
+find ccc/ -type l >> temp_zad9
+while read line; do
+    if [ $(readlink $line) = $1 ]; then
+        echo $line
+    fi
+done < temp_zad9
+rm -f temp_zad9
