@@ -26,4 +26,13 @@
 # (na przykład: bravo:../aaa/bravo).
 #
 
+touch temp_zad8
+gfind ccc/ -type l -exec test ! -e {} \; -print >> temp_zad8
+while read line; do
+    evaluate=$(gfind aaa/ bbb/ -name $(basename $line) -print)
+    if ! [ -z $evaluate ]; then
+        printf "$(basename $line):$(grealpath -ms --relative-to=ccc/ $evaluate) \n"
+    fi
+done < temp_zad8
+rm -f temp_zad8 
 
