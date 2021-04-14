@@ -29,3 +29,5 @@
 #
 
 
+# zmęczony już jestem, następnym razem zrobię wszystkie ;)
+
