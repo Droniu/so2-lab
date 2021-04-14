@@ -26,10 +26,17 @@
 # (na przykład: bravo:../aaa/bravo).
 #
 
+# odkomentować na linuksie
+# alias gfind=find
+# alias grealpath=realpath
+
 touch temp_zad8
+# dowiązania wiszące lub cykliczne (zad5)
 gfind ccc/ -type l -exec test ! -e {} \; -print >> temp_zad8
+# w sumie chyba najlepszy sposób do czytania pliku linia po linii
 while read line; do
-    evaluate=$(gfind aaa/ bbb/ -name $(basename $line) -print)
+    evaluate=$(gfind aaa/ bbb/ -name $(basename $line) -print) #
+    # jeśli zmienna nie jest pusta (czyli znalazło plik)
     if ! [ -z $evaluate ]; then
         printf "$(basename $line):$(grealpath -ms --relative-to=ccc/ $evaluate) \n"
     fi
