@@ -27,8 +27,9 @@
 # ----------------------------------------------------------------
 # odkomentować na linuksie
 # alias gfind=find
+# alias gwc=wc
 # ----------------------------------------------------------------
-gfind linux-5.11.13/ -type f | wc -l
+gfind . -type f | gwc -l
 
 # Zamiast oczekiwanego 71242 wychodzi mi 71229. Wydaje mi się, że
 # jest to poprawna odpowiedź. Różnica może wynikać z tego, że
