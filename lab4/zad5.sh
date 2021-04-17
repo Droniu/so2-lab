@@ -26,5 +26,18 @@
 # Jako wynik zwrócić tylko i wyłącznie liczbę plików.
 #
 
+# ----------------------------------------------------------------
+# odkomentować na linuksie
+# alias gfind=find
+# alias gwc=wc
+# ----------------------------------------------------------------
+
 gfind linux-5.11.13/ -regextype egrep -regex ".*/.{3}\.c$" -print | gwc -l
 
+# objaśnienie regexa
+# .* dowolne znaki dowolną ilość razy
+# / dokładnie znak /
+# .{3} dokładnie 3 dowolne znaki
+# \. dokładnie . (kropka)
+# c dokładnie c
+# $ znacznik końca linii
