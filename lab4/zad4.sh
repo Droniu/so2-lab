@@ -25,4 +25,12 @@
 # .sh na końcu nazwy). Jako wynik zwrócić ułamek w postaci X/Y i nic więcej.
 #
 
+# ----------------------------------------------------------------
+# odkomentować na linuksie
+# alias gfind=find
+# alias gwc=wc
+# ----------------------------------------------------------------
 
+a1=$(gfind linux-5.11.13/ -executable -name "*.sh" | gwc -l)
+a2=$(gfind linux-5.11.13/ -type f -executable | gwc -l)
+echo "$a1/$a2"
