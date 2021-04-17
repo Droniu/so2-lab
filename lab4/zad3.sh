@@ -29,7 +29,7 @@
 # alias gfind=find
 # alias gwc=wc
 # ----------------------------------------------------------------
-gfind . -type f | gwc -l
+gfind linux-5.11.13/ -type f | gwc -l
 
 # Zamiast oczekiwanego 71242 wychodzi mi 71229. Wydaje mi się, że
 # jest to poprawna odpowiedź. Różnica może wynikać z tego, że
@@ -37,5 +37,5 @@ gfind . -type f | gwc -l
 
 # Tutaj komenda drukująca kropkę przy znalezieniu pliku, a następnie
 # zliczająca kropki. Powinna zwracać wszędzie 71229.
-# gfind linux-5.11.13/ -type f -printf "." | wc -c
+# gfind linux-5.11.13/ -type f -printf "." | gwc -c
 
