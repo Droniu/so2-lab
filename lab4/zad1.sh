@@ -29,4 +29,4 @@
 # alias gfind=find
 # ----------------------------------------------------------------
 
-gfind -name "mutex.c"
+gfind linux-5.11.13/ -name "mutex.c"
