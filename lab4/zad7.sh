@@ -30,4 +30,4 @@
 # alias gfind=find
 # ----------------------------------------------------------------
 
-gfind -name '[A-Z]*.py' ! -executable -exec basename {} \;
+gfind linux-5.11.13/ -name '[A-Z]*.py' ! -executable -exec basename {} \;
