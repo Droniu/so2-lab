@@ -25,4 +25,9 @@
 # Wyświetlić same nazwy pasujących plików, każdą nazwę w osobnej linii.
 #
 
+# ----------------------------------------------------------------
+# odkomentować na linuksie
+# alias gfind=find
+# ----------------------------------------------------------------
 
+gfind -name '[A-Z]*.py' ! -executable -exec basename {} \;
