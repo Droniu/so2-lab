@@ -28,4 +28,4 @@
 # odkomentować na linuksie
 # alias gfind=find
 # ----------------------------------------------------------------
-gfind -type l
+gfind linux-5.11.13/ -type l
