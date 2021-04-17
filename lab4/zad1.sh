@@ -24,4 +24,9 @@
 # ścieżkę względną do tego pliku, nic ponadto.
 #
 
+# ----------------------------------------------------------------
+# odkomentować na linuksie
+# alias gfind=find
+# ----------------------------------------------------------------
 
+gfind -name "mutex.c"
