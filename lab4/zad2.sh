@@ -24,4 +24,8 @@
 # względne do takich plików (dowiązań, a nie do wskazywanych przez nie celów!).
 #
 
-
+# ----------------------------------------------------------------
+# odkomentować na linuksie
+# alias gfind=find
+# ----------------------------------------------------------------
+gfind -type l
