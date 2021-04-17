@@ -26,4 +26,5 @@
 # Jako wynik zwrócić tylko i wyłącznie liczbę plików.
 #
 
+gfind linux-5.11.13/ -regextype egrep -regex ".*/.{3}\.c$" -print | gwc -l
 
