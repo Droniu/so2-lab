@@ -24,18 +24,6 @@
 # Jako wynik zwrócić tylko i wyłącznie liczbę plików.
 #
 
-# ----------------------------------------------------------------
-# odkomentować na linuksie
-# alias gfind=find
-# alias gwc=wc
-# ----------------------------------------------------------------
-gfind linux-5.11.13/ -type f | gwc -l
+find linux-5.11.13/ -type f | wc -l
 
-# Zamiast oczekiwanego 71242 wychodzi mi 71229. Wydaje mi się, że
-# jest to poprawna odpowiedź. Różnica może wynikać z tego, że
-# niektóre pliki mają w nazwie newline, co zmienia zachowanie wc.
-
-# Tutaj komenda drukująca kropkę przy znalezieniu pliku, a następnie
-# zliczająca kropki. Powinna zwracać wszędzie 71229.
-# gfind linux-5.11.13/ -type f -printf "." | gwc -c
-
+# na macu inna liczba, na linuksie ok

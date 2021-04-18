@@ -27,9 +27,5 @@
 # to interesują nas takie, które mają przynajmniej 30kiB. Jako wynik proszę
 # wyświetlić po prostu ścieżki do takich plików.
 #
-# ----------------------------------------------------------------
-# odkomentować na linuksie
-# alias gfind=find
-# ----------------------------------------------------------------
 
-gfind linux-5.11.13/ ! -path "*/mips/*" \( -size -1024c -o \( -path "*/bluetooth/*" -size +30720c \) \) \( -name "core.c" -o -name "irq.c" \)
+find linux-5.11.13/ ! -path "*/mips/*" \( -size -1024c -o \( -path "*/bluetooth/*" -size +30720c \) \) \( -name "core.c" -o -name "irq.c" \)

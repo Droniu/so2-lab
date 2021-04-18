@@ -26,10 +26,4 @@
 # (każda nazwa w nowej linii).
 #
 
-
-# ----------------------------------------------------------------
-# odkomentować na linuksie
-# alias gfind=find
-# ----------------------------------------------------------------
-
-gfind linux-5.11.13/ -name "*.h" -empty ! -path "*/testing/*" -exec basename {} \;
+find linux-5.11.13/ -name "*.h" -empty ! -path "*/testing/*" -exec basename {} \;

@@ -25,12 +25,7 @@
 # ich zawartość. Podać ile dokładnie jest takich plików (zwrócić wyłącznie
 # liczbę plików).
 #
-# ----------------------------------------------------------------
-# odkomentować na linuksie
-# alias gfind=find
-# alias gwc=wc
-# ----------------------------------------------------------------
 
-gfind linux-5.11.13/ -size -1024c -type f -perm -644 | gwc -l
+find linux-5.11.13/ -size -1024c -type f -perm -644 | wc -l
 
 # tutaj wychodzi mi 15059, ale na linuksie wynik poprawny
