@@ -26,4 +26,10 @@
 # rozdzielone jedną spacją (<rozmiar> <nazwa>\n).
 #
 
+# ----------------------------------------------------------------
+# odkomentować na linuksie
+# alias gfind=find
+# alias gstat=stat
+# ----------------------------------------------------------------
 
+gfind linux-5.11.13/ -type f -size +$((1024*1024))c -size -$((1024*1024*10)) ! -name "*[0-9]*" -exec gstat --printf="%s " {} \; -exec basename {} \;
