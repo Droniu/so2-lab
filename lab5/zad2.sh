@@ -23,3 +23,4 @@
 # / wartość w każdym wierszu). Każdą nazwę użytkownika wypisać w osobnej linii.
 #
 
+grep -v "/bin/false\|/bin/nologin" dodatkowe/etc-passwd | awk -F: '{print $1}'
