@@ -24,3 +24,4 @@
 # Wyświetlić wyłącznie odszyfrowaną treść, nic poza tym.
 #
 
+cat dodatkowe/cezar | gtr "[a-z]" "[x-za-w]"
