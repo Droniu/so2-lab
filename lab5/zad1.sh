@@ -22,3 +22,4 @@
 # ilu jest użytkowników w tym systemie. Jako wynik zwrócić samą liczbę!
 #
 
+gwc -l < dodatkowe/etc-passwd
