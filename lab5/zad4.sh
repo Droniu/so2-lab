@@ -25,3 +25,4 @@
 # Wyświetlić same nazwy, bez powtórzeń.
 #
 
+tail -n +2 dodatkowe/ps-aux | awk '{ print $1 }' | sort | uniq
