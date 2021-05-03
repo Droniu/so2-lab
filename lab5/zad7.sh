@@ -22,3 +22,22 @@
 # oraz po spacji pełną nazwę procesu (wszystko od 11 kolumny do końca wiersza).
 #
 
+tail -n+2 dodatkowe/ps-aux | awk '
+    BEGIN {max=0}
+    {if ($3>max){
+        max=$3
+        row=$0
+    }}
+    END {
+        $0 = row
+        printf "%i ", $2
+        for(i=11;i<=NF;i++){
+            printf "%s", $i
+            if (i!=NF) {
+                printf " "
+            }
+        }
+        printf "\n"
+
+    }
+' 
