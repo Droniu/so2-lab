@@ -27,7 +27,7 @@ tail -n+2 dodatkowe/ps-aux | awk '
     {if ($3>max){
         max=$3
         row=$0
-    }}
+    }} 
     END {
         $0 = row
         printf "%i ", $2
@@ -41,3 +41,7 @@ tail -n+2 dodatkowe/ps-aux | awk '
 
     }
 ' 
+
+# if (i!=NF) { printf " " }
+# zapobiega dodatkowej spacji na koniec stringa, która dawała fałszywy wynik
+# po uruchomieniu ./testuj-rozwiazania.
