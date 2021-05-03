@@ -24,3 +24,4 @@
 # (* – chodzi o wpisy, zawierające adres 0.0.0.0 w kolumnie 5).
 #
 
+awk '$5~/^0.0.0.0/ { print $5 }' dodatkowe/ss-tulpn | awk -F ":" '{print $2}'
