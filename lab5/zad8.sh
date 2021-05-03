@@ -23,6 +23,8 @@
 # Źródła znajdują się w katalogu `coreutils-8.32`.
 #
 
-grep -lr '^#include <stdio\.h>$' coreutils-8.32 | wc -l
+grep -lr '^#include <stdio\.h>$' coreutils-8.32 | wc -l | tr -d ' '
+
+# tr -d jest wymagane, bo BSD wc wrzuca spacje przed cyfrą.
 
 
