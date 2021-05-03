@@ -27,3 +27,7 @@
 # Każdy adres e-mail wyświetlać w osobnej linii, nie wyświetlać nic ponadto.
 #
 
+awk -F ";" '
+$2 ~ /^_0/ {print substr ($2, 5) "@student.pwr.edu.pl"}
+' dodatkowe/listaSluchaczy_E07-19x.csv
+

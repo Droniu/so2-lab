@@ -22,3 +22,4 @@
 # Źródła znajdują się w katalogu `coreutils-8.32`.
 #
 
+find coreutils-8.32 -exec basename {} \; | sort | uniq -c | sort -nr | awk '{print $2; exit}'
