@@ -23,3 +23,7 @@
 # (* – wyszukać wszystkie linie, rozpoczynające się od słowa 'syslog')
 #
 
+cat dodatkowe/etc-services | awk '/^syslog*/ { print ($2+0) }' | uniq
+
+# ($2+0) wyświetli tylko pierwszą liczbę z drugiej kolumny, 
+# bo tylko do niej da się coś dodać
