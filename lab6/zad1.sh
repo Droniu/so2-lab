@@ -26,3 +26,11 @@
 # (źródło: https://wolnelektury.pl/media/book/txt/pan-tadeusz.txt).
 #
 
+# rozwiązanie szybkie, proste, ale nieogóle. 
+# jeśli linia początkowa jest większa
+# niz dzielnik to nie zadziała.
+
+# awk 'NR%3==2' dodatkowe/tadeusz.txt
+
+# rozwiązanie eleganckie, ogólne:
+awk -v init=2 -v divider=3 'BEGIN {NR==init} (NR % divider)==(init % divider)' dodatkowe/tadeusz.txt
