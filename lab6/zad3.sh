@@ -28,3 +28,9 @@
 # pliku ze strony: https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html
 #
 
+awk -F "," '
+NR==1 { headerfields=NF }
+{
+    if (NF!=headerfields) print NR
+}
+' dodatkowe/cities.csv
