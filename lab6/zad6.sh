@@ -25,3 +25,15 @@
 # rozmiar w Bajtach. Jako wynik zwrócić liczbę w MebiBajtach.
 #
 
+gfind coreutils-8.32 -printf '%s \n' | awk '
+BEGIN { 
+    sum=0
+}
+{
+    sum += $0
+}
+END {
+    print sum
+}
+'
+
