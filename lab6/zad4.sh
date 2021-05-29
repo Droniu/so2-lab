@@ -25,3 +25,17 @@
 # liniach, a wartości liczbowe poprzedzić etykietą "CPU:" bądź "RAM:".
 #
 
+awk '
+BEGIN { 
+    cpu=0
+    ram=0
+}
+NR!=1 {
+    cpu += $3
+    ram += $4
+}
+END {
+    print "CPU: " cpu
+    print "RAM: " ram
+}
+' dodatkowe/ps-aux
