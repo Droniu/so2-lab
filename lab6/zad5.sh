@@ -34,6 +34,7 @@ BEGIN {
 }
 {
     chars += (length+1)
+    # +1 for newline character
     words += NF
 }
 END {
