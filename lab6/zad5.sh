@@ -27,3 +27,18 @@
 # dotyczących liczby znaków!
 #
 
+awk '
+BEGIN { 
+    chars=0
+    words=0
+}
+{
+    chars += (length+1)
+    words += NF
+}
+END {
+    print chars
+    print words
+    print NR
+}
+' dodatkowe/nowomowa.txt
