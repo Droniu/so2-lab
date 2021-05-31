@@ -27,3 +27,27 @@
 # tekst po przekształceniu.
 #
 
+awk '
+{ 
+    limiter = 80
+    sum = 0
+    for(i=1; i<=NF; i++) {
+
+
+        if(sum+1+length($i)<=limiter) {
+            sum+=length($i)
+            sum++ # space char
+            printf $i " "
+
+        } else {
+            printf "\n"
+            sum=0
+            i--
+        }
+    }
+}
+END { printf "\n" }
+' dodatkowe/lipsum.txt
+
+# nawet po sorcie wychodzi mi źle, być moze to kwestia 
+# dodatkowej spacji tu i ówdzie.
