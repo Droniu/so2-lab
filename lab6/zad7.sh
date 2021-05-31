@@ -29,3 +29,17 @@
 # pliku ze strony: https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html
 #
 
+awk -F "," '
+NR>1 { 
+    sum = 0
+    sum += ($4+$5+$6+$7)
+    sum += (2*$8)
+    sum /= 6
+    indeks = $3
+    sub(/^\ +/, "", indeks)
+    indeks = substr(indeks, 2, 11)
+    print indeks " " sum
+}
+' dodatkowe/grades.csv | sort
+
+# sort zeby zgadzalo sie ze skryptem testujacym
