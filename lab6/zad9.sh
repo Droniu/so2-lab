@@ -27,3 +27,16 @@
 # uwzględnić taką sytuację.
 #
 
+awk '
+    {
+        gsub(/[,.]*/, "") # imo najsensowniej rozwiązuje problem interpunkcji
+        for (i=1; i<=NF; i++) { 
+            arr[length($i)]++
+        }
+    }
+END {
+    for (key in arr) {
+        print key " " arr[key]
+    }
+}
+' dodatkowe/nowomowa.txt | sort
