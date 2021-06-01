@@ -98,9 +98,17 @@ verify 'zad5.sh' "${EXPECTED}"
 #
 # Zadanie 6
 #
-read -r -d '' EXPECTED << EOF
-48.6639
-EOF
+EXPECTED=$(if ( command -v 'gdu' &> /dev/null ); then
+               TOOL='gdu'
+           else
+               TOOL='du'
+           fi
+           ("${TOOL}" --summarize --bytes --apparent-size coreutils-8.32/ 2>/dev/null \
+            || echo '51036001') \
+                | awk '{ i=1; print $i /(i+1)/(i+1)/(i+1)/(i+1)/(i+1) \
+                                       /(i+1)/(i+1)/(i+1)/(i+1)/(i+1) \
+                                       /(i+1)/(i+1)/(i+1)/(i+1)/(i+1) \
+                                       /(i+1)/(i+1)/(i+1)/(i+1)/(i+1) }')
 
 verify 'zad6.sh' "${EXPECTED}"
 
