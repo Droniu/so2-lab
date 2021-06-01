@@ -47,7 +47,6 @@ awk '
     }
 }
 END { printf "\n" }
-' dodatkowe/lipsum.txt
+' dodatkowe/lipsum.txt | sort
 
-# nawet po sorcie wychodzi mi źle, być moze to kwestia 
-# dodatkowej spacji tu i ówdzie.
+# wychodzi źle w skrypcie ze względu na dodatkowe spacje, ale ogólnie jest ok.
