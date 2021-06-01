@@ -36,3 +36,42 @@
 # i według przyjętej reguły – traktujemy ten wpis jak osobną osobę!
 #
 
+awk '
+function whereLecturer(string, array) {
+
+    if (length(array) == 0) {
+        return 0
+    } 
+    for (i in array) {
+        if (string==array[i]) {
+            return i
+        }
+    }
+    return 0
+}
+/Prowadzący:/ {
+    lString = $0
+    gsub(/.*Prowadzący: /, "", lString)
+    evaluate = whereLecturer(lString, lecturerArray)
+    if (evaluate>0) {
+        currentLecturer = evaluate
+    } else {
+        lecturerArray[length(lecturerArray)+1] = lString
+        charArray[length(lecturerArray)] = 0
+        currentLecturer = length(lecturerArray)
+    }
+
+}
+$0 !~ /Prowadzący: / {
+    if (currentLecturer != 0) {
+        charArray[currentLecturer] += length($0)
+    }
+}
+END {
+    for (i in lecturerArray) {
+        print charArray[i] " " lecturerArray[i]
+    }
+}
+' dodatkowe/doc-tajemnic.txt | sort
+
+# Wyniki nie są identyczne, ale są zbliżone.
