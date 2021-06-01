@@ -25,7 +25,7 @@
 # rozmiar w Bajtach. Jako wynik zwrócić liczbę w MebiBajtach.
 #
 
-gfind coreutils-8.32 -printf '%s \n' | awk '
+find coreutils-8.32 -printf '%s \n' | awk '
 BEGIN { 
     sum=0
 }
@@ -33,7 +33,7 @@ BEGIN {
     sum += $0
 }
 END {
-    print sum
+    print sum/1024/1024
 }
 '
 
