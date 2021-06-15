@@ -24,3 +24,6 @@
 # Każdy znaleziony unikalny odnośnik wypisać w nowej linii.
 #
 
+grep -oP "[a-zA-Z]*:/{2}[a-zA-Z0-9-._~:/?#@!$&'()*+,;=]*" dodatkowe/slajdy.tex | sort
+
+# jak na zad2, to troche przesadzone xD
