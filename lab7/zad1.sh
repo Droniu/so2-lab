@@ -21,3 +21,7 @@
 # w nowej linii, bez powtórzeń, bez żadnych znaków innych niż litery.
 #
 
+awk '
+BEGIN { RS = " " }
+/^[A-Z]/
+' dodatkowe/lipsum.txt | sort | uniq
