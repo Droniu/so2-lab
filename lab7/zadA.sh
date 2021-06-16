@@ -30,3 +30,42 @@
 # kolejnego zbioru kluczy i wartości.
 #
 
+
+# Usuwamy trailing i leading {}, cudzyysłowy i spacje
+
+
+# Po wielu godzinach pracy stwierdzam ze potrzebuję w tym przypadku
+# PCRE i mozliwość look-ahead. To trochę oszukiwanie, bo jeśli mamy perla
+# to czemu by nie pythona uzyć, ale naprawdę nie mam pomysłu
+# Tak więc:
+
+
+
+json_parser () {
+    echo $1 | \
+    sed 's/^{//' | \
+    sed 's/}$//' | \
+    sed 's/[ "]//g' | \
+    perl -pe 's/,(?![^{]*})/\n/g' | \
+    gawk -F':' '
+    !/[{}]/{
+        if ($2) {
+            printf "<" $1 ">" $2 "</" $1 ">"
+        } else {
+            printf "<" $1 " />"
+        }
+    }
+    /[{}]/{
+        printf "<" $1 ">"
+        system("./zadA.sh \x22" substr($0, index($0,$2)) "\x22")
+        printf "</" $1 ">"
+    }'
+}
+
+if [ "$1" = "" ]
+then
+    json_parser "$(cat dodatkowe/simple.json)"
+    printf "\n"
+else
+    json_parser $1
+fi
