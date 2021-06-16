@@ -31,21 +31,17 @@
 #
 
 
-# Usuwamy trailing i leading {}, cudzyysłowy i spacje
-
-
-# Po wielu godzinach pracy stwierdzam ze potrzebuję w tym przypadku
-# PCRE i mozliwość look-ahead. To trochę oszukiwanie, bo jeśli mamy perla
-# to czemu by nie pythona uzyć, ale naprawdę nie mam pomysłu
-# Tak więc:
-
-
 
 json_parser () {
+    # Usuwamy trailing i leading {}, cudzysłowy i spacje
     echo $1 | \
     sed 's/^{//' | \
     sed 's/}$//' | \
     sed 's/[ "]//g' | \
+    # Po wielu godzinach pracy stwierdzam ze potrzebuję w tym przypadku
+    # PCRE i mozliwość look-ahead. To trochę oszukiwanie, bo jeśli mamy perla
+    # to czemu by nie pythona uzyć, ale naprawdę nie mam innego pomysłu
+    # Tak więc:
     perl -pe 's/,(?![^{]*})/\n/g' | \
     gawk -F':' '
     !/[{}]/{
@@ -57,15 +53,17 @@ json_parser () {
     }
     /[{}]/{
         printf "<" $1 ">"
+        # i tu jest prawdziwa zabawa bo funkcja jest odpalana rekursywnie
         system("./zadA.sh \x22" substr($0, index($0,$2)) "\x22")
         printf "</" $1 ">"
     }'
 }
-
+# Jeśli skrypt jest odpalony bez argumentów to odpala simple.json
 if [ "$1" = "" ]
 then
     json_parser "$(cat dodatkowe/simple.json)"
     printf "\n"
 else
+    # z argumentami przetwarza argument
     json_parser $1
 fi
