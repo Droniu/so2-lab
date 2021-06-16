@@ -21,3 +21,22 @@
 # Celsjusza na Fehrenheita: T[°F] = T[°C] * 9/5 + 32.
 #
 
+awk -F'[°+-]' '
+/°/{
+    split($0, a, FS, seps)
+    for(i=1; i<=length(a); i++) {
+        if (match(a[i], /[+-]?[0-9]+[.][0-9]+/)) {
+            a[i]=(a[i]*9/5+32)
+        }
+    }
+    for (i=1;i<=NF;i++) {
+        printf "%s%s", a[i], seps[i]
+    }
+    print ""
+}
+!/°/{
+    print $0 
+}
+' dodatkowe/sensors.txt | sed 's/°C/°F/g'
+
+# szkoda ze wszystkie temperatury dodatnie :D
