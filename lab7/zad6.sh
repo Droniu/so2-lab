@@ -26,3 +26,7 @@
 # Jako wynik zwrócić same unikalne ścieżki, każdą w nowej linii.
 #
 
+grep '\\fbox.*\\includegraphics' dodatkowe/slajdy.tex | sed 's/\[\([^]]*\)\]//g' \
+| grep -o '\\includegraphics{[^}]*}' | grep -o '{[^}]*}' | sed 's/[{}]//g' | sort | uniq
+
+# troche brzydkie ale nie mialem pomyslu
