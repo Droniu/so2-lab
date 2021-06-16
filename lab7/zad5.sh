@@ -24,3 +24,8 @@
 # Zwrócić same unikalne nazwy, bez nawiasów, każdą nazwę w nowej linii.
 #
 
+awk '
+/def [_a-zA-Z]*/ {
+    print $2
+}
+' dodatkowe/service.py | sed 's/(.*//g' | sort | uniq
