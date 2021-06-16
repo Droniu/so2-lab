@@ -21,3 +21,13 @@
 # literami w tekście.
 #
 
+awk '
+/^#/ {
+    for (i=1;i<=NF;i++) {
+        if (match($i, /[a-zA-Z]/) && length($i)==1) {
+            $i = $i "&nbsp;"
+        }
+    }
+    print $0
+}
+' $0 | sed 's/&nbsp; /\&nbsp;/g'
