@@ -22,3 +22,6 @@
 # Wynik wyświetlić jako ułamek w postaci X/Y.
 #
 
+x=$(awk '!NF' dodatkowe/slajdy.tex | wc -l)
+y=$(awk 'NF' dodatkowe/slajdy.tex | wc -l)
+echo $y"/"$(($x+$y))
