@@ -23,3 +23,18 @@
 # także wyodrębnić.
 #
 
+grep -oP '(\+|00)?[0-9\ \-]{7,}' dodatkowe/kant.txt | sed 's/^[ \t]*//'
+# sed do usuniecia leading spacji
+grep -oE "\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}\b" dodatkowe/kant.txt
+
+# Ten regex na nr telefonu jest raczej kiepski. Bez wyszczególnionego kraju
+# to moze być trudne do napisania. Bez wyszczególnienia czy numery są lokalne,
+# czy międzynarodowe, tym bardziej.
+
+# W aplikacjach najczęściej kod kraju pobiera się oddzielnie, albo zabrania
+# uzywania seperatorów w inpucie, co znacząco ułatwia sprawę.
+
+# Tutaj regex jest trochę pazerny i moze zwrócić trochę więcej niz potrzeba.
+
+# Mailowy regex za to jest całkiem spoko. 
+# Zadziała raczej we wszystkich przypadkach.
